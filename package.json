@@ -1,0 +1,27 @@
+{
+  "name": "repaso_examen",
+  "version": "1.0.0",
+  "description": "Repaso de examen en mi casa",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Repaso-Examen/Repaso_Examen.git"
+  },
+  "author": "Carolina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Repaso-Examen/Repaso_Examen/issues"
+  },
+  "homepage": "https://github.com/Repaso-Examen/Repaso_Examen#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.1"
+  }
+}
