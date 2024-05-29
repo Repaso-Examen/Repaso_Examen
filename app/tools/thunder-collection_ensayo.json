@@ -1,0 +1,86 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "ensayo",
+    "collectionId": "60f23832-8bc3-4ab8-8771-4d5361c43be5",
+    "dateExported": "2024-05-29T01:42:25.042Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "a7fb01d8-d0f9-474b-a517-762ed1128b41",
+            "colId": "60f23832-8bc3-4ab8-8771-4d5361c43be5",
+            "containerId": "",
+            "name": "mostrar",
+            "url": "http://localhost:3000/api/marca/1",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-05-29T00:59:33.289Z",
+            "modified": "2024-05-29T00:59:56.868Z",
+            "headers": []
+        },
+        {
+            "_id": "6fd8d08b-da0c-450e-a704-3404d6156243",
+            "colId": "60f23832-8bc3-4ab8-8771-4d5361c43be5",
+            "containerId": "",
+            "name": "listar",
+            "url": "http://localhost:3000/api/marca",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-05-29T01:00:06.933Z",
+            "modified": "2024-05-29T01:00:21.150Z",
+            "headers": []
+        },
+        {
+            "_id": "cc11fb4f-3a04-4a5e-8e32-c49077d713a4",
+            "colId": "60f23832-8bc3-4ab8-8771-4d5361c43be5",
+            "containerId": "",
+            "name": "crear",
+            "url": "http://localhost:3000/api/marca",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-05-29T01:00:32.264Z",
+            "modified": "2024-05-29T01:40:25.093Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"descripcion\": \"KIA\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "acd3ec44-b5fa-446e-8f32-dbfa105889f8",
+            "colId": "60f23832-8bc3-4ab8-8771-4d5361c43be5",
+            "containerId": "",
+            "name": "modificar",
+            "url": "http://localhost:3000/api/marca",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-05-29T01:01:23.789Z",
+            "modified": "2024-05-29T01:31:31.331Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\":4,\n  \"descripcion\":\"HONDA\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "69b7211d-0594-42fb-91da-c4588a3f5a95",
+            "colId": "60f23832-8bc3-4ab8-8771-4d5361c43be5",
+            "containerId": "",
+            "name": "eliminar",
+            "url": "http://localhost:3000/api/marca",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-05-29T01:02:41.562Z",
+            "modified": "2024-05-29T01:39:29.785Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\":7\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "Pjl8p7rKbkTGB66EG_yi7Afqjpw5WL6xB3YP-wWqYCUIYpAmLDvaKlrRno9mAAt1cjrTCcmg92BCMYxoqu_x3A"
+}

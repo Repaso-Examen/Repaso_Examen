@@ -1,0 +1,168 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 29-05-2024 a las 03:46:37
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.0.28
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `mayorca`
+--
+CREATE DATABASE IF NOT EXISTS `mayorca` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `mayorca`;
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+DROP PROCEDURE IF EXISTS `sp_BuscarUsuario`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_BuscarUsuario` (IN `_USUARIO` VARCHAR(20))   BEGIN
+
+SELECT USUARIO, CLAVE, NOMBRE, ID FROM USUARIOS WHERE USUARIO = _USUARIO
+LIMIT 1;
+
+END$$
+
+DROP PROCEDURE IF EXISTS `sp_CrearMarca`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_CrearMarca` (IN `_DESCRIPCION` VARCHAR(200))   BEGIN
+
+INSERT INTO MARCA (DESCRIPCION)
+VALUES (_DESCRIPCION);
+
+END$$
+
+DROP PROCEDURE IF EXISTS `sp_CrearUsuario`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_CrearUsuario` (IN `_NOMBRE` VARCHAR(100), IN `_USUARIO` VARCHAR(100), IN `_CLAVE` VARCHAR(500))   BEGIN
+
+INSERT INTO USUARIOS (NOMBRE, USUARIO, CLAVE)
+VALUES (_NOMBRE, _USUARIO, _CLAVE);
+
+END$$
+
+DROP PROCEDURE IF EXISTS `sp_EliminarMarca`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_EliminarMarca` (IN `_ID` INT)   BEGIN
+
+DELETE FROM MARCA WHERE ID = _ID;
+
+END$$
+
+DROP PROCEDURE IF EXISTS `sp_EliminarUsuario`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_EliminarUsuario` (IN `_ID` INT)   BEGIN
+
+DELETE FROM USUARIOS WHERE ID = _ID;
+
+END$$
+
+DROP PROCEDURE IF EXISTS `sp_ListarMarca`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ListarMarca` ()   BEGIN
+
+SELECT DESCRIPCION
+FROM MARCA;
+
+END$$
+
+DROP PROCEDURE IF EXISTS `sp_ListarUsuario`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ListarUsuario` ()   BEGIN
+
+SELECT NOMBRE, USUARIO, CLAVE
+FROM USUARIOS;
+
+END$$
+
+DROP PROCEDURE IF EXISTS `sp_ModificarMarca`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ModificarMarca` (IN `_ID` INT, IN `_DESCRIPCION` VARCHAR(200))   BEGIN
+
+UPDATE MARCA SET DESCRIPCION = _DESCRIPCION
+WHERE ID = _ID;
+
+END$$
+
+DROP PROCEDURE IF EXISTS `sp_ModificarUsuario`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ModificarUsuario` (IN `_ID` INT, IN `_NOMBRE` VARCHAR(100), IN `_USUARIO` VARCHAR(100), IN `_CLAVE` VARCHAR(500))   BEGIN
+
+UPDATE usuarios SET NOMBRE = _NOMBRE,
+USUARIO = _USUARIO,
+CLAVE = _CLAVE WHERE ID = _ID;
+
+END$$
+
+DROP PROCEDURE IF EXISTS `sp_MostrarMarca`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_MostrarMarca` (IN `_ID` INT)   BEGIN
+
+SELECT DESCRIPCION
+FROM MARCA WHERE ID = _ID;
+
+END$$
+
+DROP PROCEDURE IF EXISTS `sp_MostrarUsuario`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_MostrarUsuario` (IN `_ID` INT)   BEGIN
+
+SELECT NOMBRE, USUARIO, CLAVE
+FROM USUARIOS WHERE ID = _ID;
+
+END$$
+
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `marca`
+--
+
+DROP TABLE IF EXISTS `marca`;
+CREATE TABLE `marca` (
+  `ID` int(3) NOT NULL,
+  `DESCRIPCION` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `marca`
+--
+
+INSERT INTO `marca` (`ID`, `DESCRIPCION`) VALUES
+(4, 'HONDA'),
+(2, 'HYUNDAI'),
+(7, 'KIA'),
+(5, 'MAZDA'),
+(6, 'PORSCHE'),
+(1, 'SUSUKI'),
+(3, 'TOYOTA');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `marca`
+--
+ALTER TABLE `marca`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `DESCRIPCION` (`DESCRIPCION`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `marca`
+--
+ALTER TABLE `marca`
+  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
